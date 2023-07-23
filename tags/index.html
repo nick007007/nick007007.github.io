@@ -250,16 +250,18 @@
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    let dasai = new Date("2023-12-23");
-    let today = new Date();
+        let ddl = $("#ddl")
+        let mw = $("#mw")
 
-    let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
-    let months = parseInt(days / 30);
-    let weeks = parseInt(days / 7);
+        let dasai = new Date("2023-12-23");
+        let today = new Date();
 
-    var lgw_title = `距离 12-23 还有 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
+        let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
+        let months = parseInt(days / 30);
+        let weeks = parseInt(days / 7);
+
+        var lgw_title = `距离 12-23 还有 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
   </script>
-
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -269,7 +271,9 @@
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(lgw_title);
+        if (text == 'nanana') 
+          text = lgw_title;
+        typing(text);
       
     })(window, document);
   </script>

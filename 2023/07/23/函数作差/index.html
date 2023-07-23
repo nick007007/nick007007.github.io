@@ -24,7 +24,7 @@
 <meta property="og:description" content="函数作差 函数作差的变形方向 形如 f(b)−f(a) 的函数之差,可以向下借助中值定理用导数表示，又可以向上表示为积分形如  \ f(b) - f(a) \ 的函数之差, 可以向下借助中值定理用导数表示，又可以向上表示为积分形如 f(b)−f(a) 的函数之差,可以向下借助中值定理用导数表示，又可以向上表示为积分 中值定理 ∃ξ∈(a,b),f(b)−f(a)&#x3D;f′(ξ)(b−a)\exists">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-22T16:05:52.236Z">
-<meta property="article:modified_time" content="2023-07-22T15:53:12.332Z">
+<meta property="article:modified_time" content="2023-07-23T04:37:12.589Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="微积分">
@@ -670,16 +670,18 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v0 v585 h43z'/></svg></span></span></
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
-    let dasai = new Date("2023-12-23");
-    let today = new Date();
+        let ddl = $("#ddl")
+        let mw = $("#mw")
 
-    let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
-    let months = parseInt(days / 30);
-    let weeks = parseInt(days / 7);
+        let dasai = new Date("2023-12-23");
+        let today = new Date();
 
-    var lgw_title = `距离 12-23 还有 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
+        let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
+        let months = parseInt(days / 30);
+        let weeks = parseInt(days / 7);
+
+        var lgw_title = `距离 12-23 还有 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
   </script>
-
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -689,7 +691,9 @@ c-10,0,-16.667,5,-20,15z M188 15 H145 v585 v0 v585 h43z'/></svg></span></span></
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(lgw_title);
+        if (text == 'nanana') 
+          text = lgw_title;
+        typing(text);
       
     })(window, document);
   </script>
