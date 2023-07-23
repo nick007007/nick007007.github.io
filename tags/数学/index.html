@@ -237,15 +237,15 @@
     </a>
   
     
-    <a href="/2023/07/23/%E5%87%BD%E6%95%B0%E4%BD%9C%E5%B7%AE/" class="list-group-item list-group-item-action">
-      <time>07-23</time>
-      <div class="list-group-item-title">函数作差</div>
-    </a>
-  
-    
     <a href="/2023/07/23/%E6%96%B9%E7%A8%8B%E7%BB%84%E7%9A%84%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5/" class="list-group-item list-group-item-action">
       <time>07-23</time>
       <div class="list-group-item-title">方程组的特殊情况</div>
+    </a>
+  
+    
+    <a href="/2023/07/23/%E5%87%BD%E6%95%B0%E4%BD%9C%E5%B7%AE/" class="list-group-item list-group-item-action">
+      <time>07-23</time>
+      <div class="list-group-item-title">函数作差</div>
     </a>
   
     
@@ -314,6 +314,17 @@
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
+    let dasai = new Date("2023-12-23");
+    let today = new Date();
+
+    let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
+    let months = parseInt(days / 30);
+    let weeks = parseInt(days / 7);
+
+    var lgw_title = `距离 12-23 还有 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
+  </script>
+
+  <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var subtitle = document.getElementById('subtitle');
@@ -322,7 +333,7 @@
       }
       var text = subtitle.getAttribute('data-typed-text');
       
-        typing(text);
+        typing(lgw_title);
       
     })(window, document);
   </script>
