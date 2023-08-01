@@ -24,7 +24,7 @@
 <meta property="og:description" content="复杂度与线性表 复杂度 概念 f(n)&#x3D;O(g(n))  ⟺  ∃c,f(n)≤c(g(n))f(n)&#x3D;O(g(n)) \iff \exists c,f(n) \le c(g(n)) f(n)&#x3D;O(g(n))⟺∃c,f(n)≤c(g(n)) f(n)&#x3D;Ω(g(n))  ⟺  ∃c,f(n)≥c(g(n))f(n)&#x3D;Ω(g(n)) \iff \exists c,f(n) \ge c(g(n)) f(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-22T16:05:52.236Z">
-<meta property="article:modified_time" content="2023-07-31T14:31:16.860Z">
+<meta property="article:modified_time" content="2023-08-01T00:53:02.667Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -156,6 +156,13 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
         
         
       </ul>
@@ -396,6 +403,28 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
     
 
     
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
 
     
   </main>
@@ -566,6 +595,8 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 

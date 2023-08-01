@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://lgw.asia/2023/07/26/%E5%AF%BC%E6%95%B0%E7%A0%94%E7%A9%B6%E5%87%BD%E6%95%B0/image-20230726093403474.png">
 <meta property="og:image" content="https://lgw.asia/2023/07/26/%E5%AF%BC%E6%95%B0%E7%A0%94%E7%A9%B6%E5%87%BD%E6%95%B0/image-20230725225617539.png">
 <meta property="article:published_time" content="2023-07-26T02:18:04.945Z">
-<meta property="article:modified_time" content="2023-07-31T14:31:16.860Z">
+<meta property="article:modified_time" content="2023-08-01T00:53:02.667Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="微积分">
@@ -161,6 +161,13 @@
             </li>
           
         
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
         
         
       </ul>
@@ -418,6 +425,28 @@ f\left(\frac{x_{1}+x_{2}}{2}\right) &lt; \frac{f\left(x_{1}\right)+f\left(x_{2}\
     
 
     
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
 
     
   </main>
@@ -588,6 +617,8 @@ f\left(\frac{x_{1}+x_{2}}{2}\right) &lt; \frac{f\left(x_{1}\right)+f\left(x_{2}\
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
