@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="lgw">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="string string是C++标准库的重要部分，主要用于字符串处理。使用string库需要在同文件中包括该库 #include&lt;string&gt; 声明 12string s;string ss[10]; 初始化 使用等号的初始化叫做拷贝初始化，不使用等号的初始化叫直接初始化。 123456789101112131415161718192021222324#include&lt;ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="string">
+<meta property="og:url" content="https://lgw.asia/2023/08/21/string/index.html">
+<meta property="og:site_name" content="lgw&#39;s blog">
+<meta property="og:description" content="string string是C++标准库的重要部分，主要用于字符串处理。使用string库需要在同文件中包括该库 #include&lt;string&gt; 声明 12string s;string ss[10]; 初始化 使用等号的初始化叫做拷贝初始化，不使用等号的初始化叫直接初始化。 123456789101112131415161718192021222324#include&lt;ios">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-7ff65bc40e209fe291362f8f44470047_720w.webp">
+<meta property="article:published_time" content="2023-08-21T08:30:44.960Z">
+<meta property="article:modified_time" content="2023-08-21T08:30:44.960Z">
+<meta property="article:author" content="lgw">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-7ff65bc40e209fe291362f8f44470047_720w.webp">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>string - lgw&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lgw.asia","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"44af5216078ef57ddfa21fe3e25e69b5","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?44af5216078ef57ddfa21fe3e25e69b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lgw&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="string"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-21 16:30" pubdate>
+          2023年8月21日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">string</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>string</h1>
+<p>string是C++标准库的重要部分，主要用于字符串处理。使用string库需要在同文件中包括该库 <code>#include&lt;string&gt;</code></p>
+<h2 id="声明">声明</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">string s;<br>string ss[10];<br></code></pre></td></tr></table></figure>
+<h2 id="初始化">初始化</h2>
+<p>使用等号的初始化叫做拷贝初始化，不使用等号的初始化叫直接初始化。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs text">#include&lt;iostream&gt;<br>#include&lt;string&gt;<br><br>using namespace std;<br><br>int main()&#123;<br>    string s;               //  默认初始化，一个空白的字符串<br>    string s1(&quot;ssss&quot;);      // s1是字面值&quot;ssss&quot;的副本<br>    string s2(s1);          // s2是s1的副本<br>    string s3 = s2;         // s3是s2的副本<br>    string s4(10, &#x27;4&#x27;);     // s4初始化<br>    string s5 = &quot;Andre&quot;;    // 拷贝初始化<br>    string s6 = string(10, &#x27;c&#x27;);    // 可拷贝初始化，生成一个初始化好的对象，拷贝给s6<br><br>    char cs[] = &quot;12345&quot;;<br>    string s7(cs, 3);       // 复制字符串cs的前三个字符到s当中<br><br>    string s8 = &quot;abcde&quot;;<br>    string s9(s8, 2);<br><br>    string s10 = &quot;asdsfasdgf&quot;;<br>    string s11(s10, 3, 4);  // s4是s3从下标s开始4个字符的拷贝，超出s10.size出现未定义<br>    return 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="string类型的读入">string类型的读入</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">string s;<br>cin &gt;&gt; s;   //不能读入空格，以空格，制表符，回车符作为结束标志<br>getline(cin, s); //可以读入空格和制表符，以回车符作为结束的标志<br></code></pre></td></tr></table></figure>
+<h2 id="字符串末尾添加字符">字符串末尾添加字符</h2>
+<p>可以用+号和append()函数在函数的末尾添加字符。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">string s;<br>s += &#x27;a&#x27;;<br>s.append(&#x27;a&#x27;);<br></code></pre></td></tr></table></figure>
+<h2 id="sting类型变量的访问">sting类型变量的访问</h2>
+<p>string字符串变量访问可以采用at, operator[]来访问指定index对应的字符。其中at有越界检查,如果index越界，无论Debug还是在Release编译的环境下，程序异常跳出执行；operator[]无越界检查，如果index越界，则会取得不可预知的字符。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">string s(&quot;abcd&quot;);<br>cout &lt;&lt; s[0] &lt;&lt; s.at(2) &lt;&lt; endl;<br></code></pre></td></tr></table></figure>
+<h2 id="string类型的长度">string类型的长度</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">string s = &quot;Hello, world!&quot;<br>int len = s.size();<br>int len = s.length();   //这两种方式是等价的<br></code></pre></td></tr></table></figure>
+<h2 id="查找字符串的子字符串">查找字符串的子字符串</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">string s = abcdefg, subs = &quot;efg&quot;;<br>int pos = s.find(subs); // 如果找到子字符串则返回首次匹配的位置，否则返回-1<br></code></pre></td></tr></table></figure>
+<h2 id="指向首字符和末尾字符的迭代器（begin-end）">指向首字符和末尾字符的迭代器（begin,end）</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs text">string s(&quot;abcdefg&quot;);<br>for(string::iterator it = s.begin(); it != s.end(); it++)<br>&#123;<br>    cout &lt;&lt; *it;<br>&#125;<br><br>//逆向迭代器<br>for (string::iterator it = s.rbegin(); it != s.rend(); it++)<br>   &#123; cout &lt;&lt; *it;  &#125; <br><br>//采用auto实现迭代器<br><br>for(auto itr : s)<br>&#123;<br>    cout &lt;&lt; itr &lt;&lt; endl;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img src="https://pic4.zhimg.com/80/v2-7ff65bc40e209fe291362f8f44470047_720w.webp" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="empty-clear">empty(), clear()</h2>
+<p>empty()可以用来检查字符串是否为空，clear()用来清空字符串。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">string s1 = &quot;012345&quot;;<br>if(!s1.empty())&#123;<br>    cout &lt;&lt; s1.length &lt;&lt; endl;<br>    s1.clear();<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="insert-在指定index处插入字符或字符串">insert()在指定index处插入字符或字符串</h2>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">// insert原型函数，在index插入count个字符ch。<br>// insert(size_type index, size_type count, char ch)<br><br>string s1 = &quot;abc&quot;;<br>s1.insert(1, 2, &#x27;D&#x27;)    // &quot;aDDbc&quot;<br></code></pre></td></tr></table></figure>
+<h2 id="erase-删除字符">erase()删除字符</h2>
+<p>erase()函数有三个原型:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">string&amp; erase(size_t pos = 0, size_t n = npos);<br>iterator erase(iterator position);<br>iterator erase(iterator first, iterator last);<br></code></pre></td></tr></table></figure>
+<p>因此erase()总共有三种用法:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">erase(pos, n);      //删除从pos开始的n个字符,比如erase(0, 1)就是删除第一个字符<br>erase(position);    //删除从position处的一个字符(position是个string类型的迭代器)<br>erase(first, last); //删除从first到last之间的字符(first和last都是迭代器)<br></code></pre></td></tr></table></figure>
+<p>应用实例：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs text">string str (&quot;This is an example phrase.&quot;);<br>string::iterator it;<br><br>// 第(1)种用法<br>str.erase (10,8);<br>cout &lt;&lt; str &lt;&lt; endl;        // &quot;This is an phrase.&quot;<br><br>// 第(2)种用法<br>it=str.begin()+9;<br>str.erase (it);<br>cout &lt;&lt; str &lt;&lt; endl;        // &quot;This is a phrase.&quot;<br><br>// 第(3)种用法<br>str.erase (str.begin()+5, str.end()-7);<br>cout &lt;&lt; str &lt;&lt; endl;        // &quot;This phrase.&quot;<br></code></pre></td></tr></table></figure>
+<h2 id="获取子字符串substr">获取子字符串substr()</h2>
+<ul>
+<li>
+<p>函数原型: <code>string substr(size_t pos = 0, size_t len = npos) const;</code></p>
+</li>
+<li>
+<p>功能: 从子字符串中获取想要的子字符串</p>
+</li>
+<li>
+<p>参数：</p>
+</li>
+<li>
+<ul>
+<li>pos: 想要获取的子字符串的第一个字符的位置，如果pos等于字符串长度，则该函数返回一个空字符串，如果等于字符串长度，则该函数返回一个空的字符串，如果该长度大于字符串长度，则抛出一个out_of_range。 注：第一个字符的下标从0开始。</li>
+<li>len： 子字符串中要包含的字符数, string::npos的值表示知道字符串末尾的所有字符。</li>
+</ul>
+</li>
+<li>
+<p>返回值：带有对象子字符串的字符串对象。</p>
+</li>
+</ul>
+<p>应用实例:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cpp">string s1 = <span class="hljs-string">&quot;Hello World&quot;</span><br>string s2 = s1.<span class="hljs-built_in">substr</span>(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>);<br>string s3 = s1.<span class="hljs-built_in">substr</span>(<span class="hljs-number">3</span>, str::npos); <span class="hljs-comment">//截取从下标3到结束的子字符串</span><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/" class="print-no-link">#编程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/08/21/%E5%BE%AE%E7%A7%AF%E5%88%86%E7%9A%84%E5%AE%9A%E7%90%86%E4%B8%8E%E9%97%AE%E9%A2%98/" title="微积分的定理与问题">
+                        <span class="hidden-mobile">微积分的定理与问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div></div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+        let ddl = $("#ddl")
+        let mw = $("#mw")
+
+        let dasai = new Date("2023-12-23");
+        let today = new Date();
+
+        let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
+        let months = parseInt(days / 30);
+        let weeks = parseInt(days / 7);
+
+        var lgw_title = `距离 12-23 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
+  </script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        if (text == 'nanana') 
+          text = lgw_title;
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
