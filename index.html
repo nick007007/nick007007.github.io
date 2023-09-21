@@ -252,7 +252,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/09/17/%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/" target="_self">
         <div>
-          特征值与特征向量 特征向量的相关性 1 不同数值特征值对应特征向量无关 λ1≠λ2是A的特征值,α1,α2是λ1,λ2对应特征向量⇒A(α1−α2)=λ1α1−λ2α2假设α1,α2相关,∵两个非零相关向量可以互相表出∴α1=kα2,k≠0∴(k−1)Aα2=(λ1k−λ2)α2⇒(k−1)λ2=kλ1−λ2⇒λ1=λ2矛盾∴α1,α2无关\lambda_1 \neq \lambda_2 是 A
+          特征值与特征向量 ★特征向量 求解 Aα=λα,α≠0⇒(λE−A)α=0求特征值λ s.t. ∣λE−A∣=0化简λ行列式时寻找同时产生0与λ公因式的行/列,再相减列/行消去其中一个A \alpha = \lambda \alpha, \alpha \neq 0  \Rightarrow (\lambda E - A) \alpha = 0 \\ 求特征值 \lambda \ s.t. \ |\
         </div>
       </a>
 
@@ -452,48 +452,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/08/31/%E7%9B%B8%E4%BC%BC%E4%B8%8E%E5%90%88%E5%90%8C/" target="_self">
-          相似与合同
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/31/%E7%9B%B8%E4%BC%BC%E4%B8%8E%E5%90%88%E5%90%8C/" target="_self">
-        <div>
-          相似与合同 相似矩阵 定义 A∼B  ⟺  ∃P可逆s.t.P−1AP=BA \sim B \iff \exists P 可逆 s.t. P^{-1} AP = B A∼B⟺∃P可逆s.t.P−1AP=B 性质 ∵Bn=(P−1AP)n=P−1AP⋯P−1AP=P−1AnP∴An∼Bn并且P−1AnP=Bn\because B^n = (P^{-1} A P)^n = P^{-1} A P \cd
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-31 02:18" pubdate>
-              2023-08-31
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
-            
-              <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">#线性代数</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
         <a href="/2023/08/31/%E7%9F%A9%E9%98%B5/" target="_self">
           矩阵
         </a>
@@ -649,6 +607,46 @@
               <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
             
               <a href="/tags/%E5%BE%AE%E7%A7%AF%E5%88%86/">#微积分</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/08/21/%E4%B8%B2%E4%B8%8E%E7%9F%A9%E9%98%B5/" target="_self">
+          串与矩阵
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/08/21/%E4%B8%B2%E4%B8%8E%E7%9F%A9%E9%98%B5/" target="_self">
+        <div>
+          串与矩阵 串 bruteforce O(mn)O(mn)O(mn)  kmp O(m+n)O(m + n)O(m+n) 最大相等真前后缀 求出输入字符串最大相等前后缀的长度 1234567891011def max_fix(s):    n = len(s)    if n == 0:          # 空串没有真前后缀, 最大相等长度 -1        return -1
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-08-21 19:44" pubdate>
+              2023-08-21
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">#数据结构</a>
             
           </div>
         
