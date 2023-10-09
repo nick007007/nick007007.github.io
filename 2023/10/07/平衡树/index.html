@@ -16,18 +16,26 @@
   <meta name="author" content="lgw">
   <meta name="keywords" content="">
   
-    <meta name="description" content="平衡树">
+    <meta name="description" content="平衡树 二叉搜索树 定义 左子树的值&lt;根的值&lt;右子树的值左子树的值 &lt; 根的值 &lt; 右子树的值 左子树的值&lt;根的值&lt;右子树的值 123456typedef struct BTNode&amp;#123;    int key;    struct BTNode* left;    struct BTNode* right;&amp;#125; BTNode; 性质  插入 12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平衡树">
 <meta property="og:url" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/index.html">
 <meta property="og:site_name" content="lgw&#39;s blog">
-<meta property="og:description" content="平衡树">
+<meta property="og:description" content="平衡树 二叉搜索树 定义 左子树的值&lt;根的值&lt;右子树的值左子树的值 &lt; 根的值 &lt; 右子树的值 左子树的值&lt;根的值&lt;右子树的值 123456typedef struct BTNode&amp;#123;    int key;    struct BTNode* left;    struct BTNode* right;&amp;#125; BTNode; 性质  插入 12">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009171519680.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009210924824.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009210947097.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009211013702.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009222805109.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009231645494.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009231723842.png">
 <meta property="article:published_time" content="2023-10-06T16:47:36.234Z">
-<meta property="article:modified_time" content="2023-10-07T08:53:21.573Z">
+<meta property="article:modified_time" content="2023-10-09T15:19:44.938Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lgw.asia/2023/10/07/%E5%B9%B3%E8%A1%A1%E6%A0%91/image-20231009171519680.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -278,7 +286,42 @@
               <div class="markdown-body">
                 
                 <h1>平衡树</h1>
-
+<h2 id="二叉搜索树">二叉搜索树</h2>
+<h3 id="定义">定义</h3>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>左子树的值</mtext><mo>&lt;</mo><mtext>根的值</mtext><mo>&lt;</mo><mtext>右子树的值</mtext></mrow><annotation encoding="application/x-tex">左子树的值 &lt; 根的值 &lt; 右子树的值
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord cjk_fallback">左子树的值</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7224em;vertical-align:-0.0391em;"></span><span class="mord cjk_fallback">根的值</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">右子树的值</span></span></span></span></span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> <span class="hljs-title class_">BTNode</span><br>&#123;<br>    <span class="hljs-type">int</span> key;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">BTNode</span>* left;<br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">BTNode</span>* right;<br>&#125; BTNode;<br></code></pre></td></tr></table></figure>
+<h3 id="性质">性质</h3>
+<img src="image-20231009171519680.png" srcset="/img/loading.gif" lazyload alt="image-20231009171519680" />
+<h3 id="插入">插入</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">BSTInsert</span><span class="hljs-params">(BTNode* &amp;bt, <span class="hljs-type">int</span> key)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (bt == <span class="hljs-literal">NULL</span>)<br>    &#123;<br>        bt = <span class="hljs-built_in">BSTCreate</span>(key);<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125;<br>    <br>    <span class="hljs-keyword">if</span> (key == bt-&gt;key)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>    <span class="hljs-keyword">if</span> (key &lt; bt-&gt;key)<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">BSTInsert</span>(bt-&gt;left, key);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">BSTInsert</span>(bt-&gt;right, key);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="删除">删除</h3>
+<h4 id="1">1</h4>
+<img src="image-20231009210924824.png" srcset="/img/loading.gif" lazyload alt="image-20231009210924824" style="zoom:50%;" />
+<h4 id="2">2</h4>
+<img src="image-20231009210947097.png" srcset="/img/loading.gif" lazyload alt="image-20231009210947097" style="zoom:50%;" />
+<h4 id="3">3</h4>
+<img src="image-20231009211013702.png" srcset="/img/loading.gif" lazyload alt="image-20231009211013702" style="zoom:50%;" />
+<h2 id="平衡二叉树">平衡二叉树</h2>
+<h3 id="平衡因子">平衡因子</h3>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>树</mtext><mo stretchy="false">(</mo><mtext>结点</mtext><mo stretchy="false">)</mo><mtext>的平衡因子</mtext><mo>=</mo><mtext>左子树的高度</mtext><mo>−</mo><mtext>右子树的高度</mtext></mrow><annotation encoding="application/x-tex">树(结点)的平衡因子 = 左子树的高度 - 右子树的高度
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">树</span><span class="mopen">(</span><span class="mord cjk_fallback">结点</span><span class="mclose">)</span><span class="mord cjk_fallback">的平衡因子</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">左子树的高度</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">右子树的高度</span></span></span></span></span></p>
+<h3 id="平衡二叉树-2">平衡二叉树</h3>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>平衡二叉树</mtext><mo>:</mo><mi mathvariant="normal">∀</mi><mtext>结点</mtext><mo>∈</mo><mtext>平衡二叉树</mtext><mo separator="true">,</mo><mi mathvariant="normal">∣</mi><mtext>结点平衡因子</mtext><mi mathvariant="normal">∣</mi><mo>≤</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">平衡二叉树: \forall 结点 \in 平衡二叉树, |结点平衡因子| \le 1
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">平衡二叉树</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7335em;vertical-align:-0.0391em;"></span><span class="mord">∀</span><span class="mord cjk_fallback">结点</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">平衡二叉树</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">∣</span><span class="mord cjk_fallback">结点平衡因子</span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span></span></p>
+<h3 id="高度">高度</h3>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>高度</mtext><mo>:</mo><mi>O</mi><mo stretchy="false">(</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">高度: O(\log_2n)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">高度</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></p>
+<img src="image-20231009222805109.png" srcset="/img/loading.gif" lazyload alt="image-20231009222805109" style="zoom: 50%;" />
+<h2 id="AVL-树">AVL 树</h2>
+<h3 id="定义-2">定义</h3>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>AVL树</mtext><mo>:</mo><mtext>平衡的二叉搜索树</mtext></mrow><annotation encoding="application/x-tex">\text{AVL} 树: 平衡的二叉搜索树
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord">AVL</span></span><span class="mord cjk_fallback">树</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">平衡的二叉搜索树</span></span></span></span></span></p>
+<h3 id="旋转">旋转</h3>
+<h4 id="RR">RR</h4>
+<img src="image-20231009231645494.png" srcset="/img/loading.gif" lazyload alt="image-20231009231645494"  />
+<h4 id="LL">LL</h4>
+<img src="image-20231009231723842.png" srcset="/img/loading.gif" lazyload alt="image-20231009231723842"  />
                 
               </div>
             
