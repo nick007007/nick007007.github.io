@@ -16,15 +16,14 @@
   <meta name="author" content="lgw">
   <meta name="keywords" content="">
   
-    <meta name="description" content="散列表 概念 复杂度:O(1)复杂度: O(1)复杂度:O(1)  装填因子(负载因子) 定义 散列表的装填因子α&#x3D;表中记录数散列表长度散列表的装填因子 \alpha &#x3D; \frac{表中记录数}{散列表长度} 散列表的装填因子α&#x3D;散列表长度表中记录数​ 期望探测次数与装填因子的关系  散列函数 设计规则  除留余数法   直接定址法  数字分析法  平方取中法  拉链法 插入  优化: 有序链表">
+    <meta name="description" content="散列表 概念  复杂度:O(1)复杂度: O(1)复杂度:O(1) 聚集  聚集(堆积): 不同关键字射向同一散列地址 处理冲突方法 选取不当的结果  装填因子(负载因子) 定义 散列表的装填因子α&#x3D;表中记录数散列表长度散列表的装填因子 \alpha &#x3D; \frac{表中记录数}{散列表长度} 散列表的装填因子α&#x3D;散列表长度表中记录数​ 平均查找长度  平均查找长度与装填因子直接相关 平均查找长度">
 <meta property="og:type" content="article">
 <meta property="og:title" content="散列表">
 <meta property="og:url" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/index.html">
 <meta property="og:site_name" content="lgw&#39;s blog">
-<meta property="og:description" content="散列表 概念 复杂度:O(1)复杂度: O(1)复杂度:O(1)  装填因子(负载因子) 定义 散列表的装填因子α&#x3D;表中记录数散列表长度散列表的装填因子 \alpha &#x3D; \frac{表中记录数}{散列表长度} 散列表的装填因子α&#x3D;散列表长度表中记录数​ 期望探测次数与装填因子的关系  散列函数 设计规则  除留余数法   直接定址法  数字分析法  平方取中法  拉链法 插入  优化: 有序链表">
+<meta property="og:description" content="散列表 概念  复杂度:O(1)复杂度: O(1)复杂度:O(1) 聚集  聚集(堆积): 不同关键字射向同一散列地址 处理冲突方法 选取不当的结果  装填因子(负载因子) 定义 散列表的装填因子α&#x3D;表中记录数散列表长度散列表的装填因子 \alpha &#x3D; \frac{表中记录数}{散列表长度} 散列表的装填因子α&#x3D;散列表长度表中记录数​ 平均查找长度  平均查找长度与装填因子直接相关 平均查找长度">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012205154671.png">
-<meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012235119898.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012210038959.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012210159971.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012210219615.png">
@@ -37,7 +36,7 @@
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012231435805.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012231546567.png">
 <meta property="article:published_time" content="2023-10-12T16:26:03.331Z">
-<meta property="article:modified_time" content="2023-10-13T01:47:42.462Z">
+<meta property="article:modified_time" content="2023-10-13T02:15:49.894Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -293,15 +292,22 @@
                 
                 <h1>散列表</h1>
 <h2 id="概念">概念</h2>
-<h3 id="复杂度-O-1"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>复杂度</mtext><mo>:</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">复杂度: O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">复杂度</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></h3>
 <img src="image-20231012205154671.png" srcset="/img/loading.gif" lazyload alt="image-20231012205154671" style="zoom:150%;" />
+<h3 id="复杂度-O-1"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>复杂度</mtext><mo>:</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">复杂度: O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">复杂度</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></h3>
+<h3 id="聚集">聚集</h3>
+<ul>
+<li>聚集(堆积): 不同关键字射向同一散列地址</li>
+<li>处理冲突方法 选取不当的结果</li>
+</ul>
 <h2 id="装填因子-负载因子">装填因子(负载因子)</h2>
 <h3 id="定义">定义</h3>
 <p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>散列表的装填因子</mtext><mi>α</mi><mo>=</mo><mfrac><mtext>表中记录数</mtext><mtext>散列表长度</mtext></mfrac></mrow><annotation encoding="application/x-tex">散列表的装填因子 \alpha = \frac{表中记录数}{散列表长度}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">散列表的装填因子</span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0463em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">散列表长度</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">表中记录数</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<h3 id="期望探测次数与装填因子的关系">期望探测次数与装填因子的关系</h3>
-<img src="image-20231012235119898.png" srcset="/img/loading.gif" lazyload alt="image-20231012235119898" style="zoom:67%;" />
-<h2 id="散列函数">散列函数</h2>
+<h3 id="平均查找长度">平均查找长度</h3>
+<ul>
+<li>平均查找长度与装填因子直接相关</li>
+<li>平均查找长度不直接依赖于 已有表项个数，表长</li>
+</ul>
 <h3 id="设计规则">设计规则</h3>
 <img src="image-20231012210038959.png" srcset="/img/loading.gif" lazyload alt="image-20231012210038959" style="zoom:150%;" />
 <h3 id="除留余数法">除留余数法</h3>
@@ -357,6 +363,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/10/13/%E6%89%AC%E5%B7%9E%E4%B8%AD%E5%AD%A6%E5%AE%9E%E4%B9%A0/" title="扬州中学实习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">扬州中学实习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
