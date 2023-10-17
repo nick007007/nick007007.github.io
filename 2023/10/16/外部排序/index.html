@@ -16,18 +16,22 @@
   <meta name="author" content="lgw">
   <meta name="keywords" content="">
   
-    <meta name="description" content="外部排序 k 路归并排序 1 内存分配:  k 个输入缓冲区，1 个输出缓冲区  2  硬盘有 N 个记录，内存工作区(每个段)容纳 L 个记录 初始归并段的数量 $r &#x3D; \left \lceil \frac{N}{L} \right \rceil $ 对每个段的 L 个记录内部排序，组成有序的初始归并段  3 总共 S&#x3D;⌈log⁡kr⌉S &#x3D; \left \lceil \log_kr \rig">
+    <meta name="description" content="外部排序 k 路归并排序 1 内存分配:  k 个输入缓冲区，1 个输出缓冲区  2  硬盘有 N 个记录，内存工作区(每个段)容纳 L 个记录 硬盘每个归并段同样容纳 L 个记录，初始归并段的数量 $r &#x3D; \left \lceil \frac{N}{L} \right \rceil $ 对每个段的 L 个记录内部排序，组成有序的初始归并段  3 总共 S&#x3D;⌈log⁡kr⌉S &#x3D; \left \">
 <meta property="og:type" content="article">
 <meta property="og:title" content="外部排序">
 <meta property="og:url" content="https://lgw.asia/2023/10/16/%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="lgw&#39;s blog">
-<meta property="og:description" content="外部排序 k 路归并排序 1 内存分配:  k 个输入缓冲区，1 个输出缓冲区  2  硬盘有 N 个记录，内存工作区(每个段)容纳 L 个记录 初始归并段的数量 $r &#x3D; \left \lceil \frac{N}{L} \right \rceil $ 对每个段的 L 个记录内部排序，组成有序的初始归并段  3 总共 S&#x3D;⌈log⁡kr⌉S &#x3D; \left \lceil \log_kr \rig">
+<meta property="og:description" content="外部排序 k 路归并排序 1 内存分配:  k 个输入缓冲区，1 个输出缓冲区  2  硬盘有 N 个记录，内存工作区(每个段)容纳 L 个记录 硬盘每个归并段同样容纳 L 个记录，初始归并段的数量 $r &#x3D; \left \lceil \frac{N}{L} \right \rceil $ 对每个段的 L 个记录内部排序，组成有序的初始归并段  3 总共 S&#x3D;⌈log⁡kr⌉S &#x3D; \left \">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lgw.asia/2023/10/16/%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/image-20231017225935160.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/16/%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/image-20231017230315296.png">
+<meta property="og:image" content="https://lgw.asia/2023/10/16/%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/image-20231017230824887.png">
 <meta property="article:published_time" content="2023-10-16T15:34:03.917Z">
-<meta property="article:modified_time" content="2023-10-17T09:22:46.496Z">
+<meta property="article:modified_time" content="2023-10-17T15:49:37.850Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lgw.asia/2023/10/16/%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/image-20231017225935160.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -286,7 +290,7 @@
 <h3 id="2">2</h3>
 <ol>
 <li>硬盘有 N 个记录，内存工作区(每个段)容纳 L 个记录</li>
-<li>初始归并段的数量 $r = \left \lceil \frac{N}{L} \right \rceil $</li>
+<li>硬盘每个归并段同样容纳 L 个记录，初始归并段的数量 $r = \left \lceil \frac{N}{L} \right \rceil $</li>
 <li>对每个段的 L 个记录内部排序，组成有序的初始归并段</li>
 </ol>
 <h3 id="3-总共-S-left-lceil-log-kr-right-rceil-趟-k-路归并">3 总共 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mrow><mo fence="true">⌈</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mi>k</mi></msub><mi>r</mi><mo fence="true">⌉</mo></mrow></mrow><annotation encoding="application/x-tex">S = \left \lceil \log_kr \right \rceil</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">S</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌈</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.242em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose delimcenter" style="top:0em;">⌉</span></span></span></span></span> 趟 k 路归并</h3>
@@ -307,6 +311,49 @@
 <li>k 个归并段选最小值需要对比 k - 1 次关键字</li>
 </ol>
 <h4 id="减少初始归并段数量-r">减少初始归并段数量 r</h4>
+<h2 id="败者-锦标赛-树">败者(锦标赛)树</h2>
+<h3 id="优化问题">优化问题</h3>
+<blockquote>
+<p>k 个归并段选最小值需要对比 k - 1 次关键字</p>
+</blockquote>
+<h3 id="k-路归并的比较次数">k 路归并的比较次数</h3>
+<ul>
+<li>初始归并段长度相同的 k 路归并排序中，每一趟 k 路归并的比较次数都是相同的</li>
+</ul>
+<h4 id="r-个归并段，每个段有-L-个记录，一趟-k-路归并，总的比较次数">r 个归并段，每个段有 L 个记录，一趟 k 路归并，总的比较次数:</h4>
+<ul>
+<li>总记录数: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>⋅</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">r \cdot L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span></span></span></span></li>
+</ul>
+<h5 id="无优化">无优化</h5>
+<ol>
+<li>k 个段头的 k 个记录选出最小需要 k - 1 次比较</li>
+<li>r * L 个记录需要选 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>⋅</mo><mi>L</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r \cdot L - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1</span></span></span></span> 次最小</li>
+<li>总比较次数: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>r</mi><mo>⋅</mo><mi>L</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>⋅</mo><mo stretchy="false">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(r \cdot L - 1) \cdot (k - 1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span></span></span></span></li>
+</ol>
+<h5 id="败者树优化">败者树优化</h5>
+<ol>
+<li>
+<p>败者树比较次数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo fence="true">⌈</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>k</mi><mo fence="true">⌉</mo></mrow><annotation encoding="application/x-tex">\left \lceil \log_2 k \right \rceil</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌈</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose delimcenter" style="top:0em;">⌉</span></span></span></span></span></p>
+</li>
+<li>
+<p>总比较次数: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>⋅</mo><mi>L</mi><mo>⋅</mo><mrow><mo fence="true">⌈</mo><msub><mrow><mi>log</mi><mo>⁡</mo></mrow><mn>2</mn></msub><mi>k</mi><mo fence="true">⌉</mo></mrow></mrow><annotation encoding="application/x-tex">r \cdot L \cdot \left \lceil \log_2 k \right \rceil</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4445em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">⌈</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.207em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2441em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mclose delimcenter" style="top:0em;">⌉</span></span></span></span></span></p>
+</li>
+</ol>
+<h2 id="置换-选择排序">置换-选择排序</h2>
+<h3 id="生成-初始归并段">(生成)初始归并段</h3>
+<h3 id="优化问题-2">优化问题</h3>
+<blockquote>
+<p>减少初始归并段数量 r</p>
+</blockquote>
+<h3 id="图示">图示</h3>
+<p><img src="image-20231017225935160.png" srcset="/img/loading.gif" lazyload alt="image-20231017225935160"></p>
+<h2 id="最佳归并树">最佳归并树</h2>
+<h3 id="k-路归并排序的最优方案">k 路归并排序的最优方案</h3>
+<h3 id="磁盘-I-O-次数">磁盘 I/O 次数</h3>
+<p><img src="image-20231017230315296.png" srcset="/img/loading.gif" lazyload alt="image-20231017230315296"></p>
+<h3 id="k-叉哈夫曼树">k 叉哈夫曼树</h3>
+<h4 id="补虚段">补虚段</h4>
+<p><img src="image-20231017230824887.png" srcset="/img/loading.gif" lazyload alt="image-20231017230824887"></p>
 
                 
               </div>
