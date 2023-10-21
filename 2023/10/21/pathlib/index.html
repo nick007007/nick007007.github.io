@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="lgw">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="pathlib 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647from pathlib import Pathp &#x3D; Path()# WindowsPath(&amp;#x27;.&amp;#x27;)p.resolve()                     # 文档显示是absolu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pathlib">
+<meta property="og:url" content="https://lgw.asia/2023/10/21/pathlib/index.html">
+<meta property="og:site_name" content="lgw&#39;s blog">
+<meta property="og:description" content="pathlib 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647from pathlib import Pathp &#x3D; Path()# WindowsPath(&amp;#x27;.&amp;#x27;)p.resolve()                     # 文档显示是absolu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-21T04:06:12.118Z">
+<meta property="article:modified_time" content="2023-10-21T04:08:30.669Z">
+<meta property="article:author" content="lgw">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>pathlib - lgw&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.16.2/katex.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lgw.asia","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"44af5216078ef57ddfa21fe3e25e69b5","google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?44af5216078ef57ddfa21fe3e25e69b5";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', '');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>lgw&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="pathlib"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-21 12:06" pubdate>
+          2023年10月21日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">pathlib</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1>pathlib</h1>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path<br>p = Path()<br><span class="hljs-comment"># WindowsPath(&#x27;.&#x27;)</span><br>p.resolve()                     <span class="hljs-comment"># 文档显示是absolute path, 这里感觉只能用在获取当前绝对路径上</span><br><span class="hljs-comment"># WindowsPath(&#x27;C:/Users/Cabby&#x27;)</span><br>p = Path(<span class="hljs-string">r&#x27;d:\test\tt.txt.bk&#x27;</span>)<br>p.name                          <span class="hljs-comment"># 获取文件名</span><br><span class="hljs-comment"># tt.txt.bk</span><br>p.stem                          <span class="hljs-comment"># 获取文件名除后缀的部分</span><br><span class="hljs-comment"># tt.txt</span><br>p.suffix                        <span class="hljs-comment"># 文件后缀</span><br><span class="hljs-comment"># .bk</span><br>p.suffixs                       <span class="hljs-comment"># 文件的后缀们...</span><br><span class="hljs-comment"># [&#x27;.txt&#x27;, &#x27;.bk&#x27;]</span><br>p.parent                        <span class="hljs-comment"># 相当于dirnanme</span><br><span class="hljs-comment"># WindowsPath(&#x27;d:/test&#x27;)</span><br>p.parents                       <span class="hljs-comment"># 返回一个iterable, 包含所有父目录</span><br><span class="hljs-comment"># &lt;WindowsPath.parents&gt;</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> p.parents:<br>    <span class="hljs-built_in">print</span>(i)<br><span class="hljs-comment"># d:\test</span><br><span class="hljs-comment"># d:\</span><br>a.parts                         <span class="hljs-comment"># 将路径通过分隔符分割成一个元祖</span><br><span class="hljs-comment"># (&#x27;d:\\&#x27;, &#x27;test&#x27;, &#x27;tt.txt.bk&#x27;)</span><br>p = Path(<span class="hljs-string">r&#x27;d:\test&#x27;</span>)<br>p = Path(p, <span class="hljs-string">&#x27;tt.txt&#x27;</span>)           <span class="hljs-comment"># 字符串拼接</span><br>p.exists()                      <span class="hljs-comment"># 判断文件是否存在</span><br>p.is_file()                     <span class="hljs-comment"># 判断是否是文件</span><br>p.is_dir()                      <span class="hljs-comment"># 判断是否是目录</span><br>p = Path(<span class="hljs-string">r&#x27;d:\test&#x27;</span>)<br><span class="hljs-comment"># WindowsPath(&#x27;d:/test&#x27;)</span><br>p.iterdir()                     <span class="hljs-comment"># 相当于os.listdir</span><br>p.glob(<span class="hljs-string">&#x27;*&#x27;</span>)                     <span class="hljs-comment"># 相当于os.listdir, 但是可以添加匹配条件</span><br>p.rglob(<span class="hljs-string">&#x27;*&#x27;</span>)                    <span class="hljs-comment"># 相当于os.walk, 也可以添加匹配条件</span><br>p = Path(<span class="hljs-string">r&#x27;d:\test\tt\dd&#x27;</span>)<br>p.mkdir(exist_ok=<span class="hljs-literal">True</span>)          <span class="hljs-comment"># 创建文件目录(前提是tt目录存在, 否则会报错)</span><br><span class="hljs-comment"># 一般我会使用下面这种创建方法</span><br>p.mkdir((exist_ok=<span class="hljs-literal">True</span>, parents=<span class="hljs-literal">True</span>) <span class="hljs-comment"># 递归创建文件目录</span><br>        p = Path(<span class="hljs-string">r&#x27;d:\test\tt.txt&#x27;</span>)<br>p.stat()                        <span class="hljs-comment"># 获取详细信息</span><br><span class="hljs-comment"># os.stat_result(st_mode=33206, st_ino=562949953579011, st_dev=3870140380, st_nlink=1, st_uid=0, st_gid=0, st_size=0, st_atime=1525254557, st_mtime=1525254557, st_ctime=1525254557)</span><br>p.stat().st_size                <span class="hljs-comment"># 文件大小</span><br><span class="hljs-comment"># 0</span><br>p.stat().st_ctime               <span class="hljs-comment"># 创建时间</span><br><span class="hljs-comment"># 1525254557.2090347</span><br><span class="hljs-comment"># 其他的信息也可以通过相同方式获取</span><br>p.stat().st_mtime               <span class="hljs-comment"># 修改时间</span><br></code></pre></td></tr></table></figure>
+<h2 id="路径获取"><strong>路径获取</strong></h2>
+<ul>
+<li>获取当前工作目录</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; import pathlib<br>&gt;&gt;&gt; pathlib.Path.cwd()<br>C:\Users\me\study<br># WindowsPath(&#x27;C:\Users\me\study&#x27;)<br></code></pre></td></tr></table></figure>
+<p>虽然在这里打印出来的很像一个字符串，但实际上得到的是一个 <code>WindowsPath('C:\Users\me\study')</code>对象。显示内容由 Path 类的 <code>__repr__</code> 定义。</p>
+<blockquote>
+<p>注意<br>
+工作目录是在哪个目录下运行你的程序，不是项目目录。</p>
+</blockquote>
+<p>如果你只想得到字符串表示，不想要 WindowsPath 对象，可以用 str() 转化：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; str(pathlib.Path.cwd())<br>C:\Users\me\study<br></code></pre></td></tr></table></figure>
+<ul>
+<li>获取用户 home 目录。</li>
+</ul>
+<p>下面的例子因为基本都是使用 pathlib 下面的 Path 类，所以可以换一种导入方式。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">from pathlib import Path<br>&gt;&gt;&gt; Path.home()<br>c:\Users\me<br></code></pre></td></tr></table></figure>
+<ul>
+<li>获取当前文件路径</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path(__file__)<br>demo_01.py<br></code></pre></td></tr></table></figure>
+<p>在 pycharm 中右击运行和在 cmd 运行的结果会不同。pycharm 会显示全路径，cmd 运行只会显示工作目录下的相对路径。如果想统一，可以添加后缀 <code>.resolve()</code> 转化成绝对路径，这个在后面还会提到。</p>
+<ul>
+<li>获取任意字符串路径</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path(&#x27;subdir/demo_02.py&#x27;)<br>subdir\demo_02.py<br>&gt;&gt;&gt; Path(&#x27;c:d:y/rad.txt&#x27;)<br>c:d:y\rad.txt<br></code></pre></td></tr></table></figure>
+<p>这里需要注意 2 点：</p>
+<ol>
+<li>不管字符串使用的是正斜杠 <code>/</code> 还是反斜杠 <code>\</code>， 在 windows 系统里，得到的路径都是反斜杠<code>\</code>, pathlib 会根据操作系统智能处理。</li>
+<li>第二个例子中字符串会被 <code>/</code> 分割，<code>c:d:y</code> 会被当做一个目录名字，pathlib 不会去判断这个文件真的存在哦。</li>
+</ol>
+<ul>
+<li>获取绝对路径</li>
+</ul>
+<p>只需要在任意路径对象后添加方法 <code>.resolve()</code> 就能获取路径的绝对路径。如果填入的路径是相对路径（windows 下没有盘符，linux 没有 / 开头)，则会在当前工作目录后添加路径。如果是已经是绝对路径，则只会根据操作系统优化表达。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file = Path(&#x27;archive/demo.txt&#x27;)<br>&gt;&gt;&gt; file<br>archive\demo.txt<br>&gt;&gt;&gt; file.resolve()<br>C:\Users\me\study\archive\demo.txt<br></code></pre></td></tr></table></figure>
+<ul>
+<li>获取文件属性</li>
+</ul>
+<p>文件属性比如文件大小，创建时间，修改时间等等。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">file = Path(&#x27;archive/demo.txt&#x27;)<br>print(file.stat())<br>print(file.stat().st_size)<br>print(file.stat().st_atime)<br>print(file.stat().st_ctime)<br>print(file.stat().st_mtime)<br></code></pre></td></tr></table></figure>
+<p>找出最后修改的文件的例子：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; path = Path.cwd()<br>&gt;&gt;&gt; max(<br>        [(f.stat().st_mtime, f) <br>         for f in path.iterdir() <br>         if f.is_file()]<br>    )<br>1589171135.860173 C:\Users\me\study\demo_03.py<br></code></pre></td></tr></table></figure>
+<h2 id="路径组成部分"><strong>路径组成部分</strong></h2>
+<p>获取路径的组成部分非常方便：</p>
+<ul>
+<li>.name 文件名，包含后缀名，如果是目录则获取目录名。</li>
+<li>.stem 文件名，不包含后缀。</li>
+<li>.suffix 后缀，比如 <code>.txt</code>, <code>.png</code>。</li>
+<li>.parent 父级目录，相当于 <code>cd ..</code></li>
+<li>.anchor 锚，目录前面的部分 <code>C:\</code> 或者 <code>/</code>。</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file = Path(&#x27;archive/demo.txt&#x27;)<br>&gt;&gt;&gt; file.name<br>demo.txt<br><br>&gt;&gt;&gt; file.stem<br>demo<br><br>&gt;&gt;&gt; file.suffix<br>.txt<br><br>&gt;&gt;&gt; file.parent<br>C:\Users\me\study\archive<br><br>&gt;&gt;&gt; file.anchor<br>&#x27;C:\&#x27;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>获取上一级目录</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file = Path(&#x27;archive/demo.txt&#x27;)<br>&gt;&gt;&gt; file.parent<br>archive<br></code></pre></td></tr></table></figure>
+<p>获取上 2 级 和 3 级目录会有点问题。因为传入的是一个相对路径，上 3 级已经无法往上了，所以还是会停留在工作目录。所以你需要确保你的路径有这么多层级。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file.parent.parent<br>.<br>&gt;&gt;&gt; file.parent.parent.parent<br>.<br></code></pre></td></tr></table></figure>
+<ul>
+<li>获取所有的上级目录：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file.parents<br>&lt;WindowsPath.parents&gt;<br>&gt;&gt;&gt; list(file.parents)<br>[WindowsPath(&#x27;archive&#x27;), WindowsPath(&#x27;.&#x27;)]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>父级目录的另一种表示方法：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file.parents[0]<br>archive<br></code></pre></td></tr></table></figure>
+<p>如果路径是在当前工作目录下的子目录，最好转化成绝对路径再获取上层目录：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file.resolve().parents[4]<br>C:\Users<br># 不能使用负数<br></code></pre></td></tr></table></figure>
+<p>在 os 模块中获取上 3 级目录简直令人奔溃，需要重复使用 dirname 函数，使用 pathlib 的 parent 可以极大简单化操作：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; import os<br>&gt;&gt;&gt; os.path.dirname(file)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>相对其他某个路径的结果：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file.relative_to(&#x27;archive&#x27;)<br>dmeo.txt<br></code></pre></td></tr></table></figure>
+<h2 id="子路径扫描"><strong>子路径扫描</strong></h2>
+<ul>
+<li>dir_path.iterdir() 可以扫描某个目录下的所有路径（文件和子目录)， 打印的会是处理过的绝对路径。</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; cwd = Path.cwd()<br>&gt;&gt;&gt; [path for path in cwd.iterdir() if cwd.is_dir()]<br>[<br>    WindowsPath(&#x27;C:/Users/me/study/archive&#x27;), <br>    WindowsPath(&#x27;C:/Users/me/study/demo_01.py&#x27;), <br>    WindowsPath(&#x27;C:/Users/me/study/new_archive&#x27;)<br>]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>使用 iterdir() 可以统计目录下的不同文件类型：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; path = Path.cwd()<br>&gt;&gt;&gt; files = [f.suffix for f in path.iterdir() if f.is_file()]<br>&gt;&gt;&gt; collections.Counter(files)<br>Counter(&#123;&#x27;.py&#x27;: 3, &#x27;.txt&#x27;: 1&#125;)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>查找目录下的指定文件 glob 。</li>
+</ul>
+<p>使用模式匹配（正则表达式）匹配指定的路径。正则表达式不熟练的可以查看 <strong><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s%3Fsrc%3D11%26timestamp%3D1589010579%26ver%3D2327%26signature%3DJ84Vp3En0*OyHZ5OJEkl4xjhX3gXUDTEn2jxYy*heATYN*IOB66Vnvj8R9Cu9D6BVB*QcAP4NtxQne2WVDOxb0e9lUFISXOtzT-8dhAqbUvHVZ69*yGAvJJ2vzWhJMfA%26new%3D1">这个教程，真的让我学会了正则表达式</a></strong>。glob 只会匹配当前目录下， rglob 会递归所有子目录。下面这个例子，demo.txt 在 archive 子目录下。所以用 glob 找到的是空列表，rglob 可以找到。glob 得到的是一个生成器，可以通过 list() 转化成列表。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; cwd = Path.cwd()<br>&gt;&gt;&gt; list(cwd.glob(&#x27;*.txt&#x27;))<br>[]<br>&gt;&gt;&gt; list(cwd.rglob(&#x27;*.txt&#x27;))<br>[WindowsPath(&#x27;C:/Users/me/study/archive/demo.txt&#x27;)]<br></code></pre></td></tr></table></figure>
+<ul>
+<li>检查路径是否符合规则 match</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file = Path(&#x27;/archive/demo.txt&#x27;)<br>&gt;&gt;&gt; file.match(&#x27;*.txt&#x27;)<br>True<br></code></pre></td></tr></table></figure>
+<h2 id="路径拼接"><strong>路径拼接</strong></h2>
+<p>pathlib 支持用 <code>/</code> 拼接路径。熟悉魔术方法的同学应该很容易理解其中的原理。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path.home() / &#x27;dir&#x27; / &#x27;file.txt&#x27;<br>C:\Users\me\dir\file.txt<br></code></pre></td></tr></table></figure>
+<p>如果用不惯 <code>/</code> ，也可以用类似 os.path.join 的方法：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path.home().joinpath(&#x27;dir&#x27;, &#x27;file.txt&#x27;)<br>C:\Users\me\dir\file.txt<br></code></pre></td></tr></table></figure>
+<h2 id="路径测试（判断）"><strong>路径测试（判断）</strong></h2>
+<ul>
+<li>是否为文件</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path(&quot;archive/demo.txt&quot;).is_file()<br>True<br>&gt;&gt;&gt; Path(&quot;archive/demo.txt&quot;).parent.is_file()<br>False<br></code></pre></td></tr></table></figure>
+<ul>
+<li>是否为文件夹 (目录)</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path(&quot;archive/demo.txt&quot;).is_dir()<br>False<br>&gt;&gt;&gt; Path(&quot;archive/demo.txt&quot;).parent.is_dir()<br>True<br></code></pre></td></tr></table></figure>
+<ul>
+<li>是否存在</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; Path(&quot;archive/demo.txt&quot;).exists<br>True<br>&gt;&gt;&gt; Path(&quot;archive/dem.txt&quot;).exists<br>False<br></code></pre></td></tr></table></figure>
+<h2 id="文件操作"><strong>文件操作</strong></h2>
+<ul>
+<li>创建文件 touch</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file = Path(&#x27;hello.txt&#x27;)<br>&gt;&gt;&gt; file.touch(exist_ok=True)<br>None<br><br>&gt;&gt;&gt; file.touch(exist_ok=False)<br>FileExistsError: [Errno 17] File exists: &#x27;hello.txt&#x27;<br></code></pre></td></tr></table></figure>
+<p>exist_ok 表示当文件已经存在时，程序的反应。如果为 True，文件存在时，不进行任何操作。如果为 False, 则会报 <code>FileExistsError</code> 错误。</p>
+<ul>
+<li>创建目录 path.mkdir</li>
+</ul>
+<p>用 os 创建目录分为 2 个函数 ： <code>mkdir()</code> 和 <code>makedirs()</code>。 <code>mkdir()</code> 一次只能创建一级目录， <code>makedirs()</code> 可以同时创建多级目录：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; os.mkdir(&#x27;dir/subdir/3dir&#x27;)<br>FileNotFoundError: [WinError 3] 系统找不到指定的路径。: &#x27;dir/subdir/3dir&#x27;<br><br>&gt;&gt;&gt; os.makedirs(&#x27;dir/subdir/3dir&#x27;)<br>None<br></code></pre></td></tr></table></figure>
+<p>使用 pathlib 只需要用 path.mkdir() 函数就可以。它提供了 parents 参数，设置为 True 可以创建多级目录；不设置则只能创建 一层：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; path = Path(&#x27;/dir/subdir/3dir&#x27;)<br>&gt;&gt;&gt; path.mkdir()<br>FileNotFoundError: [WinError 3] 系统找不到指定的路径。: &#x27;dir/subdir/3dir&#x27;<br><br>&gt;&gt;&gt; path.mkdir(parents=True)<br>None<br></code></pre></td></tr></table></figure>
+<ul>
+<li>删除目录 path.rmdir()</li>
+</ul>
+<p>删除目录非常危险，并且没有提示，一定要谨慎操作。一次只删除一级目录，且当前目录必须为空。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; path = Path(&#x27;dir/subdir/3dir&#x27;)<br>&gt;&gt;&gt; path.rmdir()<br>None<br></code></pre></td></tr></table></figure>
+<ul>
+<li>删除文件 path.unlink, 危险操作。</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; path = Path(&#x27;archive/demo.txt&#x27;)<br>&gt;&gt;&gt; path.unlink()<br></code></pre></td></tr></table></figure>
+<ul>
+<li>打开文件</li>
+</ul>
+<p>使用 open() 函数打开文件时，如果需要传入文件路径。可以用字符串作为参数传入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">with open(&#x27;archive/demo.txt&#x27;) as f:<br>    print(f.read())<br></code></pre></td></tr></table></figure>
+<p>也可以传入 Path 对象：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">file_path = Path(&#x27;archive/demo.txt&#x27;)<br>with open(file_path) as f:<br>    print(f.read())<br></code></pre></td></tr></table></figure>
+<p>如果经常使用 pathlib，可以在获取到 Path 路径以后直接调用 path.open() 方法。至于到底用哪一个，其实不必太在意，因为 path.open() 也是调用内置函数 open()。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">file = Path(&#x27;archive/demo.txt&#x27;)<br>with file.open() as f:<br>    print(f.read())<br></code></pre></td></tr></table></figure>
+<p>不过 pathlib 对读取和写入进行了简单的封装，不再需要重复去打开文件和管理文件的关闭了。</p>
+<ul>
+<li>.read_text() 读取文本</li>
+<li>.read_bytes() 读取 bytes</li>
+<li>.write_text() 写入文本</li>
+<li>.write_bytes() 写入 tytes</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs text">&gt;&gt;&gt; file_path = Path(&#x27;archive/demo.txt&#x27;)<br><br>&gt;&gt;&gt; file_path.read_text()   # 读取文本<br>&#x27;text in the demo.txt&#x27;<br><br>&gt;&gt;&gt; file_path.read_bytes()  # 读取 bytes<br>b&#x27;text in the demo.txt&#x27;<br><br>&gt;&gt;&gt; file.write_text(&#x27;new words&#x27;)  # 写入文本<br>9<br><br>&gt;&gt;&gt; file.write_bytes(b&#x27;new words&#x27;) # 写入 bytes<br>9<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<br>
+file.write 操作使用的是 w 模式，如果之前已经有文件内容，将会被覆盖。</p>
+</blockquote>
+<ul>
+<li>移动文件</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">txt_path = Path(&#x27;archive/demo.txt&#x27;)<br>res = txt_path.replace(&#x27;new_demo.txt&#x27;)<br>print(res)<br></code></pre></td></tr></table></figure>
+<p>这个操作会把 archive 目录下的 demo.txt 文件移动到当前工作目录，并重命名为 new_demo.txt。</p>
+<p>移动操作支持的功能很受限。比如当前工作目录如果已经有一个 new_demo.txt 的文件，则里面的内容都会被覆盖。还有，如果需要移动到其他目录下，则该目录必须要存在，否则会报错：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text"># new_archive 目录必须存在，否则会报错<br>txt_path = Path(&#x27;archive/demo.txt&#x27;)<br>res = txt_path.replace(&#x27;new_archive/new_demo.txt&#x27;)<br>print(res)<br></code></pre></td></tr></table></figure>
+<p>为了避免出现同名文件里的内容被覆盖，通常需要进行额外处理。比如判断同名文件不能存在，但是父级目录必须存在；或者判断父级目录不存在时，创建该目录。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">dest = Path(&#x27;new_demo.txt&#x27;)<br>if (not dest.exists()) and dest.parent.exists():<br> txt_path.replace(dest)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>重命名文件</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">txt_path = Path(&#x27;archive/demo.txt&#x27;)<br>new_file = txt_path.with_name(&#x27;new.txt&#x27;)<br>txt_path.replace(new_file)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>修改后缀名</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">txt_path = Path(&#x27;archive/demo.txt&#x27;)<br>new_file = txt_path.with_suffix(&#x27;.json&#x27;)<br>txt_path.replace(new_file)<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>注意<br>
+不管是移动文件还是删除文件，都不会给任何提示。所以在进行此类操作的时候要特别小心。<br>
+对文件进行操作最好还是用 shutil 模块。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BC%96%E7%A8%8B/" class="print-no-link">#编程</a>
+      
+    </div>
+  
+</div>
+
+
+              
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/10/21/Pythonic%20algorithm/" title="Pythonic algorithm">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Pythonic algorithm</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/10/21/915%20%E6%A6%82%E8%AE%BA/" title="915 概论">
+                        <span class="hidden-mobile">915 概论</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <div></div> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+        let ddl = $("#ddl")
+        let mw = $("#mw")
+
+        let dasai = new Date("2023-12-23");
+        let today = new Date();
+
+        let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
+        let months = parseInt(days / 30);
+        let weeks = parseInt(days / 7);
+
+        var lgw_title = `距离 12-23 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
+  </script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        if (text == 'nanana') 
+          text = lgw_title;
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
