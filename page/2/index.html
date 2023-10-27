@@ -492,7 +492,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/10/07/%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D/" target="_self">
         <div>
-          串的匹配 bruteforce O(mn)O(mn)O(mn)  kmp O(m+n)O(m + n)O(m+n) 最大相等真前后缀 求出输入字符串最大相等真前后缀的长度 1234567891011def max_fix(s):    n = len(s)    if n == 0:          # 空串没有真前后缀, 最大相等长度 -1        return -1
+          串的匹配 bruteforce O(mn)O(mn)O(mn)  kmp 时间复杂度: O(m+n)O(m + n)O(m+n) 思想  最大相等真前后缀 求出输入字符串最大相等真前后缀的长度 1234567891011def max_fix(s):         # 字符串最大相等真前后缀的长度    n = len(s)    if n == 0:          # 空串没有真前后缀,
         </div>
       </a>
 
@@ -532,7 +532,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/10/07/%E6%9F%A5%E6%89%BE/" target="_self">
         <div>
-          查找 顺序查找 ASL   成功查找长度ASL1=1+n2成功查找长度 ASL_1 = \frac{1 + n}{2} 成功查找长度ASL1​=21+n​   失败查找长度ASL2=n失败查找长度 ASL_2 = n 失败查找长度ASL2​=n   复杂度: O(n) 折半查找 算法 12345678910111213141516171819int BSearch(int nums[], int
+          查找 顺序查找 无序  有序  折半查找 算法 12345678910111213141516171819int BSearch(int nums[], int numsSize, int target)&#123;    int l = 0, r = numsSize - 1;    while (l &lt;= r)    &#123;        int m = (l + r) / 2;
         </div>
       </a>
 
@@ -572,7 +572,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/10/07/%E6%8E%92%E5%BA%8F/" target="_self">
         <div>
-          排序 概念   区分比较次数和移动次数 插入排序 插入排序每趟排序都未必把某个元素放入最终位置 直接与折半插入 算法  稳定性: 稳定 空间复杂度: O(1)O(1)O(1) 时间复杂度: O(n2)O(n^2)O(n2)  最好复杂度: O(n)O(n)O(n) 最坏复杂度: O(n2)O(n^2)O(n2) 折半插入排序移动元素次数不变，复杂度仍为O(n2)O(n^2)O(n2) 链表插入排序
+          排序 概念    快速排序最坏空间复杂度: O(n)O(n)O(n)  区分比较次数和移动次数 插入排序 插入排序每趟排序都未必把某个元素放入最终位置 直接与折半插入 算法  稳定性: 稳定 空间复杂度: O(1)O(1)O(1) 时间复杂度: O(n2)O(n^2)O(n2)  最好复杂度: O(n)O(n)O(n) 最坏复杂度: O(n2)O(n^2)O(n2) 折半插入排序移动元素次数不变，
         </div>
       </a>
 
