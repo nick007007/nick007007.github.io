@@ -16,15 +16,15 @@
   <meta name="author" content="lgw">
   <meta name="keywords" content="">
   
-    <meta name="description" content="基础概念与线性表 概念 数据结构的研究对象  数据的逻辑结构 数据的物理结构 数据的运算  数据结构基本操作准则  应用程序与存储结构的独立  三目运算符 1条件 ? 值1 : 值2  条件为真时，返回 值1，条件为假时，返回 值2  1234int max(int a, int b)&amp;#123;    return a &gt; b ? a : b;&amp;#125; 内存单位    单位 换算">
+    <meta name="description" content="基础概念与线性表 概念 数据结构的研究对象  数据的逻辑结构 数据的物理结构 数据的运算  数据结构基本操作准则  应用程序与存储结构的独立  内存单位    单位 换算     1B(字节) 8b(位)   1MB 1024KB   1KB 1024B   int 4B    复杂度 概念 f(n)&#x3D;O(g(n))  ⟺  ∃c s.t. f(n)≤c(g(n))f(n)&#x3D;O(g(n)) \if">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础概念与线性表">
 <meta property="og:url" content="https://lgw.asia/2023/10/29/%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E4%B8%8E%E7%BA%BF%E6%80%A7%E8%A1%A8/index.html">
 <meta property="og:site_name" content="lgw&#39;s blog">
-<meta property="og:description" content="基础概念与线性表 概念 数据结构的研究对象  数据的逻辑结构 数据的物理结构 数据的运算  数据结构基本操作准则  应用程序与存储结构的独立  三目运算符 1条件 ? 值1 : 值2  条件为真时，返回 值1，条件为假时，返回 值2  1234int max(int a, int b)&amp;#123;    return a &gt; b ? a : b;&amp;#125; 内存单位    单位 换算">
+<meta property="og:description" content="基础概念与线性表 概念 数据结构的研究对象  数据的逻辑结构 数据的物理结构 数据的运算  数据结构基本操作准则  应用程序与存储结构的独立  内存单位    单位 换算     1B(字节) 8b(位)   1MB 1024KB   1KB 1024B   int 4B    复杂度 概念 f(n)&#x3D;O(g(n))  ⟺  ∃c s.t. f(n)≤c(g(n))f(n)&#x3D;O(g(n)) \if">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-29T11:18:51.090Z">
-<meta property="article:modified_time" content="2023-10-29T17:32:31.769Z">
+<meta property="article:modified_time" content="2023-10-30T08:54:04.591Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -289,12 +289,6 @@
 <ul>
 <li>应用程序与存储结构的独立</li>
 </ul>
-<h2 id="三目运算符">三目运算符</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cpp">条件 ? 值<span class="hljs-number">1</span> : 值<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
-<ul>
-<li>条件为真时，返回 值1，条件为假时，返回 值2</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">max</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> a &gt; b ? a : b;<br>&#125;<br></code></pre></td></tr></table></figure>
 <h2 id="内存单位">内存单位</h2>
 <table>
 <thead>
