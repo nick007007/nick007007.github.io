@@ -16,24 +16,24 @@
   <meta name="author" content="lgw">
   <meta name="keywords" content="">
   
-    <meta name="description" content="915 - 2018 1  函数内部数组的初始化 0 string 的使用  12345678910111213141516171819202122232425#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int count[10] &#x3D; &amp;#123;0&amp;#125;;    string s;    cin">
+    <meta name="description" content="915 编程题 915 - 2018 1  函数内部数组的初始化 0 string 的使用  12345678910111213141516171819202122232425#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int count[10] &#x3D; &amp;#123;0&amp;#125;;    string s">
 <meta property="og:type" content="article">
-<meta property="og:title" content="915 - 2018">
-<meta property="og:url" content="https://lgw.asia/2023/10/26/915%20-%202018/index.html">
+<meta property="og:title" content="915 编程题">
+<meta property="og:url" content="https://lgw.asia/2023/10/30/915%20%E7%BC%96%E7%A8%8B%E9%A2%98/index.html">
 <meta property="og:site_name" content="lgw&#39;s blog">
-<meta property="og:description" content="915 - 2018 1  函数内部数组的初始化 0 string 的使用  12345678910111213141516171819202122232425#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int count[10] &#x3D; &amp;#123;0&amp;#125;;    string s;    cin">
+<meta property="og:description" content="915 编程题 915 - 2018 1  函数内部数组的初始化 0 string 的使用  12345678910111213141516171819202122232425#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;int main()&amp;#123;    int count[10] &#x3D; &amp;#123;0&amp;#125;;    string s">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-26T14:55:18.985Z">
-<meta property="article:modified_time" content="2023-10-30T08:54:21.127Z">
+<meta property="article:published_time" content="2023-10-30T09:39:53.769Z">
+<meta property="article:modified_time" content="2023-10-30T09:39:53.769Z">
 <meta property="article:author" content="lgw">
-<meta property="article:tag" content="编程">
+<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>915 - 2018 - lgw&#39;s blog</title>
+  <title>915 编程题 - lgw&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="915 - 2018"></span>
+            <span id="subtitle" data-typed-text="915 编程题"></span>
           
         </div>
 
@@ -228,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-26 22:55" pubdate>
-          2023年10月26日 晚上
+        <time datetime="2023-10-30 17:39" pubdate>
+          2023年10月30日 下午
         </time>
       </span>
     
@@ -272,30 +272,46 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">915 - 2018</h1>
+            <h1 id="seo-header">915 编程题</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>915 - 2018</h1>
-<h2 id="1">1</h2>
+                <h1>915 编程题</h1>
+<h2 id="915-2018">915 - 2018</h2>
+<h3 id="1">1</h3>
 <ul>
 <li>函数内部数组的初始化 0</li>
 <li>string 的使用</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> count[<span class="hljs-number">10</span>] = &#123;<span class="hljs-number">0</span>&#125;;<br><br>    string s;<br>    cin &gt;&gt; s;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; s.<span class="hljs-built_in">length</span>(); i++)<br>    &#123;<br>        <span class="hljs-type">int</span> n = s[i] - <span class="hljs-string">&#x27;0&#x27;</span>;<br><br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">0</span> &lt;= n &amp;&amp; n &lt; <span class="hljs-number">10</span>)<br>            count[n]++;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++)<br>        cout &lt;&lt; i &lt;&lt; <span class="hljs-string">&#x27;:&#x27;</span> &lt;&lt; count[i] &lt;&lt; <span class="hljs-string">&#x27;,&#x27;</span>;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="2">2</h2>
+<h3 id="2">2</h3>
 <ul>
 <li>struct 的声明</li>
 <li>冒泡排序</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Stu</span><br>&#123;<br>    string name;<br>    <span class="hljs-type">int</span> score;<br>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">sort</span><span class="hljs-params">(Stu stu_arr[], <span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = n - <span class="hljs-number">1</span>; j &gt; i; j--)<br>        &#123;<br>            <span class="hljs-keyword">if</span> (stu_arr[j - <span class="hljs-number">1</span>].score &lt; stu_arr[j].score)<br>                <span class="hljs-built_in">swap</span>(stu_arr[j - <span class="hljs-number">1</span>], stu_arr[j]);<br>        &#125;<br>    &#125;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n;<br>    cin &gt;&gt; n;<br><br>    Stu stu_arr[n];<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)<br>        cin &gt;&gt; stu_arr[i].name &gt;&gt; stu_arr[i].score;<br><br>    <span class="hljs-built_in">sort</span>(stu_arr, n);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i)<br>        cout &lt;&lt; stu_arr[i].name &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span> &lt;&lt; stu_arr[i].score &lt;&lt; <span class="hljs-string">&#x27;\n&#x27;</span>;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="3">3</h2>
+<h3 id="3">3</h3>
 <ul>
 <li>数组的赋值初始化</li>
 <li>闰年</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_leap</span><span class="hljs-params">(<span class="hljs-type">int</span> year)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> year % <span class="hljs-number">400</span> == <span class="hljs-number">0</span> || (year % <span class="hljs-number">4</span> == <span class="hljs-number">0</span> &amp;&amp; year % <span class="hljs-number">100</span> != <span class="hljs-number">0</span>);<br>&#125;<br><br><span class="hljs-type">int</span> days[] = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">31</span>, <span class="hljs-number">0</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span> ,<span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> year, month, day;<br>    cin &gt;&gt; year &gt;&gt; month &gt;&gt; day;<br>    <br>    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">is_leap</span>(year))<br>        days[<span class="hljs-number">2</span>] = <span class="hljs-number">29</span>;<br>    <span class="hljs-keyword">else</span><br>        days[<span class="hljs-number">2</span>] = <span class="hljs-number">28</span>;<br>    <br>    <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; month; i++)<br>        cnt += days[i];<br>    cnt += day;<br>    <br>    cout &lt;&lt; cnt &lt;&lt; endl;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="915-2019">915 - 2019</h2>
+<h3 id="1-2">1</h3>
+<ul>
+<li>无穷大的初始化</li>
+<li>循环输入</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> left = INT_MAX, down = INT_MAX;<br>    <span class="hljs-type">int</span> right = INT_MIN, up = INT_MIN;<br><br>    <span class="hljs-type">int</span> x, y;<br>    <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>)<br>    &#123;<br>        cin &gt;&gt; x &gt;&gt; y;<br>        <span class="hljs-keyword">if</span> (x == <span class="hljs-number">0</span> &amp;&amp; y == <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">break</span>;<br><br>        left = <span class="hljs-built_in">min</span>(left, x);<br>        down = <span class="hljs-built_in">min</span>(down, y);<br><br>        right = <span class="hljs-built_in">max</span>(right, x);<br>        up = <span class="hljs-built_in">max</span>(up, y);<br>    &#125;<br><br>    cout &lt;&lt; left &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; down &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; endl;<br>    cout &lt;&lt; right &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; up &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="2-2">2</h3>
+<h4 id="1-3">(1)</h4>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br>string s;<br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_palindrome</span><span class="hljs-params">(<span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (left &gt;= right)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br><br>    <span class="hljs-keyword">if</span> (s[left] != s[right])<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">is_palindrome</span>(left + <span class="hljs-number">1</span>, right - <span class="hljs-number">1</span>);<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">while</span> (cin &gt;&gt; s)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">is_palindrome</span>(<span class="hljs-number">0</span>, s.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>))<br>            cout &lt;&lt; <span class="hljs-string">&quot;Yes!&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="2-3">(2)</h4>
+<ul>
+<li>栈</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br>string str;<br><br><br><span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">is_palindrome</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    stack&lt;<span class="hljs-type">char</span>&gt; st;<br>    <span class="hljs-type">int</span> m = str.<span class="hljs-built_in">size</span>() / <span class="hljs-number">2</span>;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; ++i)<br>        st.<span class="hljs-built_in">push</span>(str[i]);<br><br>    <span class="hljs-keyword">if</span> (str.<span class="hljs-built_in">size</span>() % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>        m++;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = m; i &lt; str.<span class="hljs-built_in">size</span>(); ++i)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (st.<span class="hljs-built_in">top</span>() != str[i])<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>        st.<span class="hljs-built_in">pop</span>();<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">while</span> (cin &gt;&gt; str)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">is_palindrome</span>())<br>            cout &lt;&lt; <span class="hljs-string">&quot;Yes!&quot;</span> &lt;&lt; endl;<br>        <span class="hljs-keyword">else</span><br>            cout &lt;&lt; <span class="hljs-string">&quot;No!&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -308,7 +324,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BC%96%E7%A8%8B/" class="print-no-link">#编程</a>
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="print-no-link">#数据结构</a>
       
     </div>
   
@@ -322,9 +338,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/29/915%20-%202019/" title="915 - 2019">
+                      <a href="/2023/10/30/c++%20%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="c++ 编程基础">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">915 - 2019</span>
+                        <span class="hidden-mobile">c++ 编程基础</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -332,8 +348,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/22/%E6%95%B0%E7%BB%84%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8/" title="数组矩阵与广义表">
-                        <span class="hidden-mobile">数组矩阵与广义表</span>
+                      <a href="/2023/10/30/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" title="数据结构名词解释">
+                        <span class="hidden-mobile">数据结构名词解释</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
