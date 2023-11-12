@@ -24,7 +24,7 @@
 <meta property="og:description" content="基础概念与线性表 概念 数据结构的研究对象 1 数据的逻辑结构  集合结构：集合结构中的元素关系，除了同属于一个集合这个关系以外，再无其他关系 线性结构：线性结构中，元素间的关系就是一对一 树形结构：树形结构中，元素间的关系就是一对多 图形结构：图形结构中，元素间的关系就是多对多  2 数据的物理结构  顺序存储结构：是把数据元素存放在地址连续存储单元里，其数据间的逻辑关系和物理关系是一致的 链式">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-10-29T11:18:51.090Z">
-<meta property="article:modified_time" content="2023-11-09T17:42:08.413Z">
+<meta property="article:modified_time" content="2023-11-12T06:18:41.776Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -368,11 +368,66 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>T</mi><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>⇒</mo><mi>T</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">T(0) = 1, T(n) = 1 + T(n - 1) \Rightarrow T(n) = O(n)
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord">0</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">⇒</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></span></p>
 <p>树型递归画出递归树估算规模</p>
-<h2 id="递归函数的两个条件">递归函数的两个条件</h2>
-<ol>
-<li>可以通过递归调用来缩小问题规模，且新问题与原问题有着相同的形式。</li>
-<li>存在一种简单情境，可以使递归在简单情境下退出。</li>
-</ol>
+<h2 id="递归-2">递归</h2>
+<h3 id="递归的适用场景">递归的适用场景</h3>
+<ul>
+<li>可以把原始问题转换为属性相同，但规模较小的问题</li>
+</ul>
+<h3 id="递归函数的两个要素">递归函数的两个要素</h3>
+<ul>
+<li>递归表达式（递归体）</li>
+<li>边界条件（递归出口）</li>
+</ul>
+<h2 id="函数调用栈">函数调用栈</h2>
+<h3 id="函数调用栈记录的信息">函数调用栈记录的信息</h3>
+<ul>
+<li>调用返回地址</li>
+<li>实参</li>
+<li>局部变量</li>
+</ul>
+<h3 id="递归函数调用栈的例子">递归函数调用栈的例子</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">func</span><span class="hljs-params">(<span class="hljs-type">int</span> v, <span class="hljs-type">int</span> p)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (p == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br><br>    <span class="hljs-type">int</span> t = <span class="hljs-built_in">func</span>(v, p/<span class="hljs-number">2</span>);<br>    t *= t;<br><br>    <span class="hljs-keyword">if</span> (p % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">return</span> t;<br><br>    <span class="hljs-keyword">return</span> t * v;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">func</span>(<span class="hljs-number">4</span>, <span class="hljs-number">3</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>return 1</th>
+<th>t *= t</th>
+<th>return t * v = 4</th>
+<th>t *= t</th>
+<th>return t * v = 64</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>func, v = 4, p = 0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>func, v = 4, p = 1, t</td>
+<td>func, v = 4, p = 1, t = 1</td>
+<td>func, v = 4, p = 1, t = 1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>func, v = 4, p = 3, t</td>
+<td>func, v = 4, p = 3, t</td>
+<td>func, v = 4, p = 3, t</td>
+<td>func, v = 4, p = 3, t = 4</td>
+<td>func, v = 4, p = 3, t = 16</td>
+</tr>
+<tr>
+<td>main</td>
+<td>main</td>
+<td>main</td>
+<td>main</td>
+<td>main</td>
+</tr>
+</tbody>
+</table>
 <h2 id="线性表">线性表</h2>
 <p>不同情况下考虑出入删除不同位置元素的时间复杂度</p>
 <h3 id="顺序，链式，静态链表">顺序，链式，静态链表</h3>
