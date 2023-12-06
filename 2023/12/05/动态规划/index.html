@@ -24,7 +24,7 @@
 <meta property="og:description" content="动态规划 线性 dp 母牛的故事  有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？   an相较于an−1的增量是性成熟牛总数,即an−3a_n 相较于 a_{n - 1} 的增量是性成熟牛总数, 即a_{n - 3}an​相较于an−1​的增量是性成熟牛总数,即an−3​  1234567891011121314">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-05T14:59:13.183Z">
-<meta property="article:modified_time" content="2023-12-05T15:05:00.915Z">
+<meta property="article:modified_time" content="2023-12-06T08:09:08.233Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -541,10 +541,8 @@
         let today = new Date();
 
         let days = parseInt((dasai - today) / 1000 / 60 / 60 / 24);
-        let months = parseInt(days / 30);
-        let weeks = parseInt(days / 7);
 
-        var lgw_title = `距离 12-23 ${days} 天 ≈ ${months} 个月 ≈ ${weeks} 周`
+        var lgw_title = `距离 12-23 ${days} 天`
   </script>
   <script>
     (function (window, document) {
