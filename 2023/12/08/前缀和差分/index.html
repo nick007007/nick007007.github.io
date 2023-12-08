@@ -16,27 +16,24 @@
   <meta name="author" content="lgw">
   <meta name="keywords" content="">
   
-    <meta name="description" content="串的匹配 bruteforce O(mn)O(mn)O(mn)  kmp 时间复杂度: O(m+n)O(m + n)O(m+n) 思想  最大相等真前后缀 求出输入字符串最大相等真前后缀的长度 1234567891011def max_fix(s):         # 字符串最大相等真前后缀的长度    n &#x3D; len(s)    if n &#x3D;&#x3D; 0:          # 空串没有真前后缀,">
+    <meta name="description" content="前缀和差分 前缀和 一维 123456789101112131415161718192021222324252627282930313233343536373839404142#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;const int N &#x3D; 1e5 + 1;int arr[N], sum[N];void build(int n)&amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="串的匹配">
-<meta property="og:url" content="https://lgw.asia/2023/10/07/%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D/index.html">
+<meta property="og:title" content="前缀和差分">
+<meta property="og:url" content="https://lgw.asia/2023/12/08/%E5%89%8D%E7%BC%80%E5%92%8C%E5%B7%AE%E5%88%86/index.html">
 <meta property="og:site_name" content="lgw&#39;s blog">
-<meta property="og:description" content="串的匹配 bruteforce O(mn)O(mn)O(mn)  kmp 时间复杂度: O(m+n)O(m + n)O(m+n) 思想  最大相等真前后缀 求出输入字符串最大相等真前后缀的长度 1234567891011def max_fix(s):         # 字符串最大相等真前后缀的长度    n &#x3D; len(s)    if n &#x3D;&#x3D; 0:          # 空串没有真前后缀,">
+<meta property="og:description" content="前缀和差分 前缀和 一维 123456789101112131415161718192021222324252627282930313233343536373839404142#include &lt;bits&#x2F;stdc++.h&gt;using namespace std;const int N &#x3D; 1e5 + 1;int arr[N], sum[N];void build(int n)&amp;#12">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lgw.asia/2023/10/07/%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D/image-20230821194417104.png">
-<meta property="og:image" content="https://lgw.asia/2023/10/07/%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D/%E6%89%AB%E6%8F%8F%E5%85%A8%E8%83%BD%E7%8E%8B%202023-10-27%2021.20.jpg">
-<meta property="article:published_time" content="2023-10-07T07:38:49.779Z">
-<meta property="article:modified_time" content="2023-12-08T14:02:01.539Z">
+<meta property="article:published_time" content="2023-12-08T14:02:01.544Z">
+<meta property="article:modified_time" content="2023-12-08T14:02:01.544Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lgw.asia/2023/10/07/%E4%B8%B2%E7%9A%84%E5%8C%B9%E9%85%8D/image-20230821194417104.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>串的匹配 - lgw&#39;s blog</title>
+  <title>前缀和差分 - lgw&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -220,7 +217,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="串的匹配"></span>
+            <span id="subtitle" data-typed-text="前缀和差分"></span>
           
         </div>
 
@@ -231,8 +228,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-10-07 15:38" pubdate>
-          2023年10月7日 下午
+        <time datetime="2023-12-08 22:02" pubdate>
+          2023年12月8日 晚上
         </time>
       </span>
     
@@ -275,47 +272,20 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">串的匹配</h1>
+            <h1 id="seo-header">前缀和差分</h1>
             
             
               <div class="markdown-body">
                 
-                <h1>串的匹配</h1>
-<h2 id="bruteforce">bruteforce</h2>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(mn)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">mn</span><span class="mclose">)</span></span></span></span></p>
-<img src="image-20230821194417104.png" srcset="/img/loading.gif" lazyload alt="image-20230821194417104" style="zoom:80%;" />
-<h2 id="kmp">kmp</h2>
-<h3 id="时间复杂度-O-m-n">时间复杂度: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>m</mi><mo>+</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(m + n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span></h3>
-<h3 id="思想">思想</h3>
-<img src="扫描全能王 2023-10-27 21.20.jpg" srcset="/img/loading.gif" lazyload alt="扫描全能王 2023-10-27 21.20" style="zoom: 25%;" />
-<h3 id="最大相等真前后缀">最大相等真前后缀</h3>
-<p>求出输入字符串最大相等真前后缀的长度</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">max_fix</span>(<span class="hljs-params">s</span>):         <span class="hljs-comment"># 字符串最大相等真前后缀的长度</span><br>    n = <span class="hljs-built_in">len</span>(s)<br><br>    <span class="hljs-keyword">if</span> n == <span class="hljs-number">0</span>:          <span class="hljs-comment"># 空串没有真前后缀, 最大相等长度 -1</span><br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>       <span class="hljs-comment"># 长度为 1 的字符串, 真前后是空串, 最大相等长度 0</span><br><br>    <span class="hljs-keyword">for</span> size <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n - <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, -<span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">if</span> s[: size] == s[-size:]:<br>            <span class="hljs-keyword">return</span> size<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>            <span class="hljs-comment"># 相等真前后缀只有空串, 最大相等长度 0</span><br></code></pre></td></tr></table></figure>
-<p>以下字符串，数组下标从 0 计数</p>
-<h3 id="next">next</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_next</span>(<span class="hljs-params">p</span>):<br>    n = <span class="hljs-built_in">len</span>(p)<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    next[tail] = p 到 p[tail] 之前的前缀的最大相等真前后缀的长度</span><br><span class="hljs-string">    同时也是模式串匹配的下一个位置</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br>    <span class="hljs-keyword">return</span> [max_fix(p[: tail]) <span class="hljs-keyword">for</span> tail <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n)]<br></code></pre></td></tr></table></figure>
-<h4 id="next-val">next_val</h4>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_nextval</span>(<span class="hljs-params">p</span>):<br>    n = <span class="hljs-built_in">len</span>(p)<br><br>    next_val = get_next(p)<br><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n):<br>        j = next_val[i]<br>        <span class="hljs-comment"># 如果前一个待匹配字符和当前待匹配字符相等, 显然也不合法</span><br>        <span class="hljs-comment"># 可以继续往前找, 直到找到一个不相等的字符</span><br>        <span class="hljs-keyword">if</span> p[i] == p[j]:<br>            next_val[i] = next_val[j]<br><br>    <span class="hljs-keyword">return</span> next_val<br></code></pre></td></tr></table></figure>
-<h3 id="匹配">匹配</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">kmp</span>(<span class="hljs-params">s, p, get_nxt</span>):<br>    nxt = get_nxt(p)<br><br>    i = <span class="hljs-number">0</span><br>    j = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">while</span> i &lt; <span class="hljs-built_in">len</span>(s) <span class="hljs-keyword">and</span> j &lt; <span class="hljs-built_in">len</span>(p):<br>        <span class="hljs-keyword">if</span> j == -<span class="hljs-number">1</span>:                 <span class="hljs-comment"># 模式串头不匹配</span><br>            i += <span class="hljs-number">1</span>                  <span class="hljs-comment"># i 右移 1 位</span><br>            j = <span class="hljs-number">0</span>                   <span class="hljs-comment"># j 重新从 1 开始匹配</span><br><br>        <span class="hljs-keyword">elif</span> s[i] == p[j]:<br>            <span class="hljs-keyword">if</span> j == <span class="hljs-built_in">len</span>(p) - <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">return</span> i - j<br><br>            i += <span class="hljs-number">1</span><br>            j += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:                       <span class="hljs-comment"># s[i] != p[j]</span><br>            j = nxt[j]              <span class="hljs-comment"># j 的下一个位置</span><br><br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br><br></code></pre></td></tr></table></figure>
-<h3 id="下标从-1-计数时">下标从 1 计数时</h3>
-<ul>
-<li>
-<p>next / next _val 数组表示模式串该字符匹配失败后下一个模式串待匹配字符的位置</p>
-</li>
-<li>
-<p>串下标从 0 计数时，next / next _val 元素表示模式串该字符匹配失败后下一个模式串待匹配字符的位置</p>
-</li>
-<li>
-<p>串下标从 0 计数时，next / next _val 元素也表示模式串到该字符前的前缀的最大相等真前后缀长度</p>
-</li>
-<li>
-<p>串下标从 1 计数时，next / next _val 存储下标要比串下标从 0 计数时前进一位</p>
-</li>
-<li>
-<p>串下标从 1 计数时 next / next _val 元素的值是串下标从 0 计数时，next / next _val 元素的值 + 1</p>
-</li>
-</ul>
+                <h1>前缀和差分</h1>
+<h2 id="前缀和">前缀和</h2>
+<h3 id="一维">一维</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span> + <span class="hljs-number">1</span>;<br><br><span class="hljs-type">int</span> arr[N], sum[N];<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        sum[i] = sum[i - <span class="hljs-number">1</span>] + arr[i];<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> sum[r] - sum[l - <span class="hljs-number">1</span>];<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, q;<br>    cin &gt;&gt; n &gt;&gt; q;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        cin &gt;&gt; arr[i];<br><br>    <span class="hljs-built_in">build</span>(n);<br><br>    <span class="hljs-type">int</span> l, r;<br>    <span class="hljs-keyword">while</span> (q--)<br>    &#123;<br>        cin &gt;&gt; l &gt;&gt; r;<br>        cout &lt;&lt; <span class="hljs-built_in">query</span>(l, r) &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="二维">二维</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1001</span>;<br><br><span class="hljs-type">int</span> matrix[N][N], sum[N][N];<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++)<br>            sum[i][j] = sum[i][j - <span class="hljs-number">1</span>] + sum[i - <span class="hljs-number">1</span>][j] - sum[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + matrix[i][j];<br>    &#125;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> xm, <span class="hljs-type">int</span> ym, <span class="hljs-type">int</span> xM, <span class="hljs-type">int</span> yM)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">return</span> sum[xM][yM] - sum[xM][ym - <span class="hljs-number">1</span>] - sum[xm - <span class="hljs-number">1</span>][yM] + sum[xm - <span class="hljs-number">1</span>][ym - <span class="hljs-number">1</span>];<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, m, q;<br>    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= m; j++)<br>            cin &gt;&gt; matrix[i][j];<br>    &#125;<br><br>    <span class="hljs-built_in">build</span>(n, m);<br><br>    <span class="hljs-type">int</span> x1, y1, x2, y2;<br>    <span class="hljs-keyword">while</span> (q--)<br>    &#123;<br>        cin &gt;&gt; x1 &gt;&gt; y1 &gt;&gt; x2 &gt;&gt; y2;<br>        cout &lt;&lt; <span class="hljs-built_in">query</span>(x1, y1, x2, y2) &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="差分">差分</h2>
+<h3 id="一维-2">一维</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N  = <span class="hljs-number">1e5</span> + <span class="hljs-number">1</span>;<br><br><span class="hljs-type">int</span> arr[N], delt[N], sum[N];<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>    &#123;<br>        delt[i] = arr[i] - arr[i - <span class="hljs-number">1</span>];<br>    &#125;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function"></span>&#123;<br>    delt[l] += x;<br>    delt[r + <span class="hljs-number">1</span>] -= x;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        sum[i] = sum[i - <span class="hljs-number">1</span>] + delt[i];<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, q;<br>    cin &gt;&gt; n &gt;&gt; q;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        cin &gt;&gt; arr[i];<br><br>    <span class="hljs-built_in">build</span>(n);<br><br>    <span class="hljs-type">int</span> l, r, x;<br>    <span class="hljs-keyword">while</span>(q--)<br>    &#123;<br>        cin &gt;&gt; l &gt;&gt; r &gt;&gt; x;<br>        <span class="hljs-built_in">modify</span>(l, r, x);<br>    &#125;<br><br>    <span class="hljs-built_in">query</span>(n);<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        cout &lt;&lt; sum[i] &lt;&lt; <span class="hljs-string">&#x27; &#x27;</span>;<br>    cout &lt;&lt; endl;<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -342,9 +312,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/" title="图的算法">
+                      <a href="/2023/12/08/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="编程基础">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">图的算法</span>
+                        <span class="hidden-mobile">编程基础</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -352,8 +322,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/07/%E6%9F%A5%E6%89%BE/" title="查找">
-                        <span class="hidden-mobile">查找</span>
+                      <a href="/2023/12/07/%E5%A4%87%E5%BF%98%E5%BD%95/" title="备忘录">
+                        <span class="hidden-mobile">备忘录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
