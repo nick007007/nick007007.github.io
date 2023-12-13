@@ -33,10 +33,8 @@
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012215523070.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012220947822.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231112075937347.png">
-<meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012231435805.png">
-<meta property="og:image" content="https://lgw.asia/2023/10/13/%E6%95%A3%E5%88%97%E8%A1%A8/image-20231012231546567.png">
 <meta property="article:published_time" content="2023-10-12T16:26:03.331Z">
-<meta property="article:modified_time" content="2023-12-11T17:51:46.177Z">
+<meta property="article:modified_time" content="2023-12-13T14:46:04.022Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
@@ -292,7 +290,7 @@
                 
                 <h1>散列表</h1>
 <h2 id="概念">概念</h2>
-<img src="image-20231012205154671.png" srcset="/img/loading.gif" lazyload alt="image-20231012205154671" style="zoom:150%;" />
+<img src="image-20231012205154671.png" srcset="/img/loading.gif" lazyload alt="image-20231012205154671" style="zoom: 50%;" />
 <h3 id="复杂度-O-1"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>复杂度</mtext><mo>:</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">复杂度: O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">复杂度</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span></h3>
 <h3 id="聚集">聚集</h3>
 <ul>
@@ -383,13 +381,21 @@
 <h4 id="代码">代码</h4>
 <h3 id="删除">删除</h3>
 <h4 id="逻辑删除">逻辑删除</h4>
+<h5 id="1">1</h5>
 <ul>
 <li>不能直接删除元素，应该给要删除元素打上删除标记</li>
 <li>否则会截断其后探测路径，中断元素查找</li>
 </ul>
-<h4 id="图示">图示</h4>
-<img src="image-20231012231435805.png" srcset="/img/loading.gif" lazyload alt="image-20231012231435805" style="zoom:150%;" />
-<img src="image-20231012231546567.png" srcset="/img/loading.gif" lazyload alt="image-20231012231546567" style="zoom:150%;" />
+<h5 id="2">2</h5>
+<ol>
+<li>某位置被 逻辑删除 / 重新插入新元素 不改变其他位置 查找次数
+<ul>
+<li>该位置不在探测路径无影响</li>
+<li>该位置在探测路径中相当于冲突不影响查找次数</li>
+</ul>
+</li>
+<li>删除插入新元素哈希表的 ASL = <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mtext>旧元素查找次数</mtext><mo>+</mo><mtext>新元素查找次数</mtext></mrow><mtext>键数</mtext></mfrac></mrow><annotation encoding="application/x-tex">\frac{旧元素查找次数 + 新元素查找次数}{键数}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2173em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8723em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">键数</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord cjk_fallback mtight">旧元素查找次数</span><span class="mbin mtight">+</span><span class="mord cjk_fallback mtight">新元素查找次数</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ol>
 
                 
               </div>
