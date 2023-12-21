@@ -23,6 +23,7 @@
 <meta property="og:site_name" content="lgw&#39;s blog">
 <meta property="og:description" content="图的算法 floyd &amp; prim 12345678910class AdjMatrix:    def __init__(self, n):        self.n &#x3D; n                                          self.matrix &#x3D; [[float(&amp;#x27;inf&amp;#x27;)] * (n + 1) for _ in range(">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/IMG_20231218_154226.jpg">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/image-20231022235544958.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/image-20231022235714258.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/image-20231022235800813.png">
@@ -31,11 +32,11 @@
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/image-20231022235942453.png">
 <meta property="og:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/image-20231023000004226.png">
 <meta property="article:published_time" content="2023-10-12T16:26:03.261Z">
-<meta property="article:modified_time" content="2023-12-17T13:58:40.325Z">
+<meta property="article:modified_time" content="2023-12-21T17:19:46.388Z">
 <meta property="article:author" content="lgw">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/image-20231022235544958.png">
+<meta name="twitter:image" content="https://lgw.asia/2023/10/13/%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95/IMG_20231218_154226.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -332,7 +333,9 @@
 <p>如果从源点出发, 抵达一个负环时, 松弛操作会无休止地进行下去<br>
 如果第 n 轮循环时仍然存在能松弛的边, 说明从源点出发, 能够抵达一个负环</p>
 <h3 id="代码">代码</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">bellmanford</span>(<span class="hljs-params">self, a, b, k</span>):<br>    dist = [<span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)] * (self.n + <span class="hljs-number">1</span>)<br>    dist[a] = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">relax</span>():<br>        last_dist = dist.copy()<br><br>        <span class="hljs-keyword">for</span> (a, b), w <span class="hljs-keyword">in</span> self:<br>            dist[b] = <span class="hljs-built_in">min</span>(dist[b], last_dist[a] + w)<br><br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k):      <span class="hljs-comment"># n 个结点最短路长度 n - 1, 每次最短路边数 + 1</span><br>        relax()             <span class="hljs-comment"># k &lt;= n - 1, 若第 n 轮循环时仍然存在能松弛的边</span><br>                            <span class="hljs-comment"># 说明从源点出发, 能够抵达一个负环</span><br>    <span class="hljs-keyword">return</span> dist[b]<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">bellmanford</span>(<span class="hljs-params">self, a, b, k</span>):<br>    dist = [<span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;inf&#x27;</span>)] * (self.n + <span class="hljs-number">1</span>)<br>    dist[a] = <span class="hljs-number">0</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">relax</span>():<br>        last_dist = dist.copy()<br><br>        <span class="hljs-keyword">for</span> (u, v), w <span class="hljs-keyword">in</span> self:<br>            dist[v] = <span class="hljs-built_in">min</span>(dist[v], last_dist[u] + w)<br><br>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(k):      <span class="hljs-comment"># n 个结点最短路长度 n - 1, 每次最短路边数 + 1</span><br>        relax()             <span class="hljs-comment"># k &lt;= n - 1, 若第 n 轮循环时仍然存在能松弛的边</span><br>                            <span class="hljs-comment"># 说明从源点出发, 能够抵达一个负环</span><br>    <span class="hljs-keyword">return</span> dist[b]<br></code></pre></td></tr></table></figure>
+<h3 id="例子">例子</h3>
+<img src="IMG_20231218_154226.jpg" srcset="/img/loading.gif" lazyload alt="IMG_20231218_154226" style="zoom:25%;" />
 <h2 id="dijkstra">dijkstra</h2>
 <ul>
 <li>不适用于负权图</li>
@@ -367,7 +370,7 @@
 <li>虚键：使不同终点边成为同一边前驱的 0 权边</li>
 <li>补充顶点，画树连接</li>
 </ol>
-<h3 id="例子">例子</h3>
+<h3 id="例子-2">例子</h3>
 <p>![扫描全能王 2023-12-02 11.13](扫描全能王 2023-12-02 11.13.jpg)</p>
 <h3 id="关键路径-2">关键路径</h3>
 <p><img src="image-20231022235714258.png" srcset="/img/loading.gif" lazyload alt="image-20231022235714258"></p>
